@@ -3,7 +3,7 @@ const { Blog } = require('../../models');
 const withAuth = require('../../utils/auth')
 
 
-// Create A Blog Post
+// CREATE A Blog Post
 router.post('/', withAuth, async (req, res) => {
     try {
         const newBlog = await Blog.create({
@@ -17,7 +17,18 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
-// Delete a blog post 
+
+// READ One Blog Post by User (app.get - see homeroutes)
+
+// READ All Blog Posts by User (app.get - see homeroutes)
+
+
+// UPDATE A Blog Posts by the user (app.put method) // edit-blog/:id
+
+
+
+
+// Delete a blog post by the user
 
 router.delete('/:id', async (req, res) => {
     try {
