@@ -85,9 +85,48 @@ router.get("/edit-blog", withAuth, async (req, res) => {
 
 // NEW BLOG - uses withAuth Middleware to prevent non-users from accessing
 
+router.get("/new-blog", withAuth, async (req, res) => {
+    // find logged in user by ID
+    try {
+        const userData = await User.findByPk(req.params.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Blog }],
+        });
+        //  serializes data for template to read
+        const user = userData.get({ plain: true });
+
+        // passes serialized data + session into template
+        res.render("new-blog", {
+            ...user,
+             logged_in: true
+        });
+    } catch (err) {
+        res.status(500).json(err);
+        }
+});
 
 
+// ALL BLOGS ADMIN PAGE - uses withAuth Middleware to prevent non-users from accessing
 
+router.get("/all-blogs-admin", withAuth, async (req, res) => {
+    // find logged in user by ID
+    try {
+        const userData = await User.findByPk(req.params.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Blog }],
+        });
+        //  serializes data for template to read
+        const user = userData.get({ plain: true });
+
+        // passes serialized data + session into template
+        res.render("all-blogs-admin", {
+            ...user,
+             logged_in: true
+        });
+    } catch (err) {
+        res.status(500).json(err);
+        }
+});
 
 
 // LOGIN - get /login will render a login page
