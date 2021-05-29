@@ -1,3 +1,6 @@
+// handles custom routes and those that handle CRUD operations
+
+
 const router = require('express').Router();
 const { User } = require('../../models');
 

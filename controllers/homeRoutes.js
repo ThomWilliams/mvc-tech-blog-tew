@@ -1,3 +1,5 @@
+// HTML ROUTES
+
 const router = require("express").Router;
 const { Blog, User } = require('../models')
 const withAuth = require("../utils/auth")
@@ -31,6 +33,7 @@ router.get("/", async (req, res) => {
     }
 });
 
+// 
 
 // SINGLE-BLOG get request to view a single post using an id 
 
@@ -59,9 +62,9 @@ router.get("/single-blog/:id", async (req, res) => {
 
 });
 
-// EDIT-BLOG - uses withAuth Middleware to prevent non-users from accessing
+// EDIT-BLOG (ONE) - uses withAuth Middleware to prevent non-users from accessing
 
-router.get("/edit-blog", withAuth, async (req, res) => {
+router.get("/edit-blog/:id", withAuth, async (req, res) => {
     // find logged in user by ID
     try {
         const userData = await User.findByPk(req.params.user_id, {
