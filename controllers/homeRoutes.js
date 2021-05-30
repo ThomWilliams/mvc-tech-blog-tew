@@ -156,8 +156,3 @@ router.get('/signup', (req,res) => {
 })
 
 module.exports = router;
-
-// TO DO 
-
-// ROUTES 
-// HOMEPAGE > BLOGS > COMMENTS > LOGIN

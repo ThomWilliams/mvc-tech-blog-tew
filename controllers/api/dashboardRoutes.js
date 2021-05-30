@@ -25,7 +25,18 @@ router.post('/', withAuth, async (req, res) => {
 
 // UPDATE A Blog Posts by the user (app.put method) // edit-blog/:id
 
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+        const editBlog = await Blog.update({
+            ...req.body,
+            user_id: req.session.user_id,
+        });
 
+        res.status(200).json(editBlog);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
 
 
 // Delete a blog post by the user
