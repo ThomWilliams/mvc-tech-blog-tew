@@ -1,3 +1,5 @@
+ {{!-- sends a post request to the API path for login --}}
+ 
  <h3>Login</h3>
 
     <form class="form login-form">
@@ -6,10 +8,13 @@
         <input class="form-input" type="text" id="username-login" />
         </div>
         <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
+        <label for="password-login">Password:</label>
+        <input class="form-input" type="text" id="password-login" />
         </div>
         <div class="form-group">
         <button class="btn" type="submit">login</button>
         </div>
     </form>
+
+{{!-- from the root, to correspond data with login.js file --}}
+    <script src="js/login.js"></script>
