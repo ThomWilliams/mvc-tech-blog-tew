@@ -26,5 +26,4 @@ const loginFormHandler = async (event) => {
     }
 }; 
 
-
-loginFormEL.addEventListener("submit");
+loginFormEL.addEventListener("submit", loginFormHandler);
