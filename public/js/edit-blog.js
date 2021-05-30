@@ -1,5 +1,6 @@
 // corresponds with edit-blog handlebars
 const editBlogFormEL = document.querySelector('edit-blog-form');
+const deleteBlogButton = document.querySelector('');
 
 const editBlogFormHandler = async (event) => {
     event.preventDefault();
@@ -10,7 +11,7 @@ const editBlogFormHandler = async (event) => {
 
     if (blogTitle && blogContent) {
         // sends PUT request to the edit-blog API end-point
-        const response = await fetch("/api/dashboard/:id", {
+        const response = await fetch(`/api/dashboard/${id}`, {
 
             method: 'PUT',
             body: JSON.stringify({ blogTitle, blogContent }),
@@ -25,4 +26,10 @@ const editBlogFormHandler = async (event) => {
         }
     }
 }; 
+
+// const delete
+
+
+
 editBlogFormEL.addEventListener("submit", editBlogFormHandler);
+deleteBlogButton.addEventListener("")
