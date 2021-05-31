@@ -14,12 +14,12 @@ const loginFormHandler = async (event) => {
 
             method: 'POST',
             body: JSON.stringify({ username, password }),
-            headers: { 'Content-Type:': 'application//json'},
+            headers: { 'Content-Type:': 'application/json'},
         });
 
         if (response.ok) {
-            // successful request sends user to all-blogs page
-            document.location.replace('/all-blogs'); 
+            // successful request sends user to dashboard page
+            document.location.replace('/api/dashboard'); 
         } else {
             alert(response.statusText);
         }

@@ -10,16 +10,16 @@ const newBlogFormHandler = async (event) => {
 
     if (blogTitle && blogContent) {
         // sends POST request to the new-blog API end-point
-        const response = await fetch("/api/dashboard", {
+        const response = await fetch("/api/dashboard/new-blog", {
 
             method: 'POST',
             body: JSON.stringify({ blogTitle, blogContent }),
-            headers: { 'Content-Type:': 'application//json'},
+            headers: { 'Content-Type:': 'application/json'},
         });
 
         if (response.ok) {
             // successful request sends user to all-blogs page
-            document.location.replace('/all-blogs'); 
+            document.location.replace('/dashboard'); 
         } else {
             alert("Could not create blog");
         }

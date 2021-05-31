@@ -10,21 +10,20 @@ const signupFormHandler = async (event) => {
 
     if (username && password) {
         // sends POST request to the signup API end-point
-        const response = await fetch("/api/users", {
+        const response = await fetch("/api/users/sign-up", {
 
             method: 'POST',
             body: JSON.stringify({ username, password }),
-            headers: { 'Content-Type:': 'application//json'},
+            headers: { 'Content-Type:': 'application/json'},
         });
 
         if (response.ok) {
-            // successful request sends user to all-blogs page
-            document.location.replace('/all-blogs'); 
+            // successful request sends user to dashboard
+            document.location.replace('api/dashboard'); 
         } else {
             alert(response.statusText);
         }
     }
 }; 
-
 
 signupFormEL.addEventListener("submit", signupFormHandler);

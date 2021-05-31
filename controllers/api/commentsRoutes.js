@@ -21,11 +21,6 @@ router.post('/', withAuth, async (req, res) => {
 // READ All comments Post by User (app.get - see homeroutes)
 
 
-// UPDATE / edit a Posts by the user (app.put method) // edit-blog/:id
-
-
-
-
 // Delete a comments by the user
 
 router.delete('/:id', async (req, res) => {

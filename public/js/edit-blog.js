@@ -1,7 +1,10 @@
 // corresponds with edit-blog handlebars
 const editBlogFormEL = document.querySelector('edit-blog-form');
-const deleteBlogButton = document.querySelector('');
+const deleteBlogButton = document.querySelector('delete-btn');
+const editBlogButton = document.querySelector('edit-btn');
 
+
+// Edit / Update Blog 
 const editBlogFormHandler = async (event) => {
     event.preventDefault();
 
@@ -15,21 +18,39 @@ const editBlogFormHandler = async (event) => {
 
             method: 'PUT',
             body: JSON.stringify({ blogTitle, blogContent }),
-            headers: { 'Content-Type:': 'application//json'},
+            headers: { 'Content-Type:': 'application/json'},
         });
 
         if (response.ok) {
             // successful request sends user to all-blogs page
-            document.location.replace('/all-blogs'); 
+            document.location.replace('/api/dashboard'); 
         } else {
             alert("Could not update blog");
         }
     }
 }; 
 
-// const delete
+//  delete blog post
+
+const deleteButtonHandler = async (event) => {
+    if (event.target.hasAttributes('data-id' && deleteBlogButton)) {
+        const id = event.target.getAttribute('data-id');
+
+        const response = await fetch(`api/dashboard/${id}`, {
+            method: 'DELETE'
+        });
+
+        if (response.ok) {
+            // successful request sends user to all-blogs page
+            document.location.replace('/api/dashboard'); 
+        } else {
+            alert("Could not delete blog");
+        }
+    }
+}
 
 
 
-editBlogFormEL.addEventListener("submit", editBlogFormHandler);
+
+editBlogFormEL.addEventListener(deleteBlogButton("submit"), editBlogFormHandler);
 deleteBlogButton.addEventListener("")
