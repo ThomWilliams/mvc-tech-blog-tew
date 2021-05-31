@@ -22,7 +22,7 @@ const editBlogFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            // successful request sends user to all-blogs page
+            // successful request sends user to dashboard page
             document.location.replace('/api/dashboard'); 
         } else {
             alert("Could not update blog");
@@ -52,5 +52,5 @@ const deleteButtonHandler = async (event) => {
 
 
 
-editBlogFormEL.addEventListener(deleteBlogButton("submit"), editBlogFormHandler);
-deleteBlogButton.addEventListener("")
+editBlogFormEL.addEventListener("submit", editBlogFormHandler);
+deleteBlogButton.addEventListener("click", deleteButtonHandler);
