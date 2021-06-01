@@ -1,5 +1,25 @@
+{{#if blogs.length}}
+
+<h3>All Current Blogs</h3>
+
+
+{{#each blogs as |blog|}}
 <article>
-    <h3>{{blog_title}}</h3>
+    <div class="blog-title row">
+        <h4 href="/single-blog/{{blog.id}}">{{blog_title}}</h4>
+    </div>
+
+    <div class="blog-user row">
         <p>{{username}} || {{date}}</p>
+    </div>
+
+    <div class="blog-content row">
         <p>{{blog_content}}</p>
+    </div>
+
 </article>
+
+{{/each}}
+
+{{/if}}
+
