@@ -1,5 +1,20 @@
+{{#if blog.id}}
+
+<h3>Single Selected Blog</h3>
+
 <article>
-    <h4>{{blog_title}}</h4>
+    <div class="blog-title row">
+        <h4 href="/single-blog/{{blog.id}}">{{blog_title}}</h4>
+    </div>
+
+    <div class="blog-user row">
         <p>{{username}} || {{date}}</p>
+    </div>
+
+    <div class="blog-content row">
         <p>{{blog_content}}</p>
+    </div>
+
 </article>
+
+{{/if}}
