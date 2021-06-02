@@ -89,3 +89,8 @@ nav a:hover {
     min-width: 90%;
     background-color: var(--light);
 }
+
+
+.hide {
+  display: none;
+}

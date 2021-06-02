@@ -10,10 +10,14 @@
     <nav>
         <a href="/">Home</a>
         <a href="/dashboard">Dashboard</a>
-        <a href="/login">Login</a>
-        <a href="/signup">Sign-up</a>
-        <a href="/logout" id="logout">Logout</a>
+        {{#if logged_in}}
+        <a class="hide" href="/login" id="login">Login</a>
+        <a class="hide" href="/signup" id="signup">Sign-up</a>
+        {{else}}
+        <a class="hide" href="/logout" id="logout">Logout</a>
+        {{/if}}
     </nav>
+
     <header>
         <h1>Star Tech</h1>
         <h2>Code Long And Prosper</h2>
@@ -30,6 +34,6 @@
 
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
-     {{/if}}
+    {{/if}}
 </body>
 </html>
