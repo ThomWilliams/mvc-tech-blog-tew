@@ -1,7 +1,7 @@
 // corresponds with edit-blog handlebars
-const editBlogFormEL = document.querySelector('edit-blog-form');
-const deleteBlogButton = document.querySelector('delete-btn');
-const editBlogButton = document.querySelector('edit-btn');
+const editBlogFormEL = document.querySelector('.edit-blog-form');
+const deleteBlogButton = document.querySelector('.delete-btn');
+const editBlogButton = document.querySelector('.edit-btn');
 
 
 // Edit / Update Blog 
@@ -18,7 +18,7 @@ const editBlogFormHandler = async (event) => {
 
             method: 'PUT',
             body: JSON.stringify({ blogTitle, blogContent }),
-            headers: { 'Content-Type:': 'application/json'},
+            headers: { 'Content-Type': 'application/json'},
         });
 
         if (response.ok) {

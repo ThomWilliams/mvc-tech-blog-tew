@@ -1,5 +1,5 @@
 // corresponds with signup handlebars
-const signupFormEL = document.querySelector('signup-form');
+const signupFormEL = document.querySelector('.signup-form');
 
 const signupFormHandler = async (event) => {
     event.preventDefault();
@@ -10,11 +10,10 @@ const signupFormHandler = async (event) => {
 
     if (username && password) {
         // sends POST request to the signup API end-point
-        const response = await fetch("/api/users/sign-up", {
-
+        const response = await fetch("/api/users", {
             method: 'POST',
             body: JSON.stringify({ username, password }),
-            headers: { 'Content-Type:': 'application/json'},
+            headers: { 'Content-Type': 'application/json'},
         });
 
         if (response.ok) {

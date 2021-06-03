@@ -1,5 +1,5 @@
 // corresponds with new-blog handlebars
-const newBlogFormEL = document.querySelector('new-blog-form');
+const newBlogFormEL = document.querySelector('.new-blog-form');
 
 const newBlogFormHandler = async (event) => {
     event.preventDefault();
@@ -14,7 +14,7 @@ const newBlogFormHandler = async (event) => {
 
             method: 'POST',
             body: JSON.stringify({ blogTitle, blogContent }),
-            headers: { 'Content-Type:': 'application/json'},
+            headers: { 'Content-Type': 'application/json'},
         });
 
         if (response.ok) {
