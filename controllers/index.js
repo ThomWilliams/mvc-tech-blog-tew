@@ -5,7 +5,12 @@ const homeRouter = require("./homeRoutes");
 
 router.use("/", homeRouter);
 router.use("/api", apiRouter);
+
+
 module.exports = router;
+
+
+
 
 
 // TOP LEVEL ROUTES - WHAT COMES AFTER THE FIRST SLASH

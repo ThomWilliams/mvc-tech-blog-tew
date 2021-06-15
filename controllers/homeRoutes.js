@@ -4,7 +4,9 @@ const router = require("express").Router();
 const { Blog, User } = require('../models')
 const withAuth = require("../utils/auth")
 
-// ALL-BLOGS - get request to get all the blog posts and display
+
+
+// HOMEPAGE: ALL-BLOGS - get request to get all the blog posts and display
 
 router.get("/", async (req, res) => {
 
@@ -23,7 +25,7 @@ router.get("/", async (req, res) => {
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
         // passes serialized data + session into template
-     res.render("homepage", {
+     res.render("all-blogs", {
         blogs,
         logged_in: req.session.logged_in
         });
@@ -86,7 +88,7 @@ router.get("/edit-blog/:id", withAuth, async (req, res) => {
 });
 
 
-// NEW BLOG - uses withAuth Middleware to prevent non-users from accessing
+// CREATE NEW BLOG - uses withAuth Middleware to prevent non-users from accessing
 
 router.get("/new-blog", withAuth, async (req, res) => {
     // find logged in user by ID
@@ -154,5 +156,34 @@ router.get('/signup', (req,res) => {
     // corresponds with signup.handlebars
     res.render('signup')
 })
+
+
+
+// DASHBOARD - PREVENT ROUTE ACCESS USING WITHAUTH MIDDLEWARE
+router.get("/dashboard", withAuth, async (req, res) => {
+    try {
+        const blogData = await Blog.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                },
+            ],
+        });
+    
+       //  serializes data for template to read
+        const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
+      // passes data into homepage handlebars template
+      res.render('dashboard', {
+          blogs,
+        logged_in: req.session.logged_in,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+
 
 module.exports = router;
