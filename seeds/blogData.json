@@ -1,0 +1,31 @@
+[
+    {
+      "blog_content": "A blog about Javascript",
+      "blog_title": "Blog 1: Javascript",
+      "username": "Spock",
+      "date": "10/12/2020",
+      "user_id": 1
+    },
+    {
+        "blog_content": "A blog about the MVC Paradigm",
+        "blog_title": "Blog 2: MVC",
+        "username": "Captain Kirk",
+        "date": "10/12/2020",
+        "user_id": 1
+      },
+      {
+        "blog_content": "A blog about ORM",
+        "blog_title": "Blog 3: ORM Object Relational Mapping",
+        "username": "Scotty",
+        "date": "11/01/2021",
+        "user_id": 1
+      },
+      {
+        "blog_content": "A blog about Computer Science Topics",
+        "blog_title": "Blog 4: Computer Science",
+        "username": "Uhuru",
+        "date": "02/06/2021",
+        "user_id": 1
+      }
+        
+]
