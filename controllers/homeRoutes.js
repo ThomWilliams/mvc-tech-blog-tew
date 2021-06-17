@@ -88,13 +88,13 @@ router.get("/edit-blog/:id", withAuth, async (req, res) => {
 });
 
 
-// CREATE NEW BLOG - uses withAuth Middleware to prevent non-users from accessing
+// CREATE NEW BLOG FORM - uses withAuth Middleware to prevent non-users from accessing
 
 router.get("/new-blog", withAuth, async (req, res) => {
     // find logged in user by ID
     try {
-        const userData = await User.findByPk(req.params.user_id, {
-            attributes: { exclude: ['password'] },
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ["password"] },
             include: [{ model: Blog }],
         });
         //  serializes data for template to read
