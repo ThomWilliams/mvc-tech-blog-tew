@@ -44,7 +44,6 @@ router.get("/blog/:id", async (req, res) => {
         },
       ],
     });
-    console.log(blogData);
     //  serializes data for template to read
     const blog = blogData.get({ plain: true });
 
@@ -66,7 +65,6 @@ router.get("/blog/:id/edit", withAuth, async (req, res) => {
     const blogId = await Blog.findByPk(req.params.id);
     //  serializes data for template to read
     const blog = blogId.get({ plain: true });
-    console.log(blog);
     // passes serialized data + session into template
     res.render("edit-blog", {
       ...blog,
@@ -80,7 +78,6 @@ router.get("/blog/:id/edit", withAuth, async (req, res) => {
 // Put Edit
 
 router.put("/blog/:id", withAuth, async (req, res) => {
-    console.log("Editing attempted")
   // find logged in user by ID
   try {
     const [rowsAffected] = await Blog.update(req.body, {
@@ -99,7 +96,6 @@ router.put("/blog/:id", withAuth, async (req, res) => {
 // DELETE-BLOG (ONE) - uses withAuth Middleware to prevent non-users from accessing
 
 router.delete('/blog/:id', withAuth, async (req, res) => {
-  console.log("Deleting")
   try {
       const [affectedRows] = await Blog.destroy({
          where: {

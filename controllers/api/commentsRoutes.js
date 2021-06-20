@@ -4,7 +4,6 @@ const withAuth = require("../../utils/auth");
 
 // CREATE A comment
 router.post("/", withAuth, async (req, res) => {
-  console.log("backend endpoitn test");
 
   try {
     const input = {

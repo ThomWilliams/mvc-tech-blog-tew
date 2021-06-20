@@ -31,16 +31,10 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 
-// UPDATE A Blog Posts by the user (app.put method) // edit-blog/:id
-
-
-
-
 
 // DELETE A Blog Posts by the user (app.put method) // edit-blog/:id
 
 router.delete('/blog/:id', withAuth, async (req, res) => {
-    console.log("Deleting")
     try {
         const [affectedRows] = await Blog.destroy({
            where: {

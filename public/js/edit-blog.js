@@ -11,7 +11,6 @@ const editBlogFormHandler = async (event) => {
   const blog_title = document.getElementById("blog_title").value.trim();
   const blog_content = document.getElementById("blog_content").value.trim();
   const id = document.getElementById("blog-id").value;
-  console.log(id);
   if (blog_title && blog_content) {
     // sends PUT request to the edit-blog API end-point
     const response = await fetch(`/blog/${id}`, {
@@ -33,7 +32,6 @@ const editBlogFormHandler = async (event) => {
 
 const deleteButtonHandler = async (event) => {
       event.preventDefault();
-    console.log("delete button clicked")
     const id = document.getElementById("blog-id").value;
   const response = await fetch(`/blog/${id}`, {
     method: "DELETE",

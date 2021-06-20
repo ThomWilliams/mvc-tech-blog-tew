@@ -1,6 +1,5 @@
 const Sequelize = require("sequelize");
 require("dotenv").config();
-console.log(process.env.DB_NAME, process.env.DB_PASSWORD, process.env.DB_USER);
 // let sequelize;
 
 const seq = process.env.JAWSDB_URL
