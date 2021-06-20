@@ -5,10 +5,10 @@ async function newBlogFormHandler(event) {
     event.preventDefault();
 
     // Get values inputted by user into new-blog handlebars template
-    const blogTitle = document.getElementById("blog_title").value.trim();
-    const blogContent = document.getElementById("blog_content").value.trim();
+    const blog_title = document.getElementById("blog_title").value.trim();
+    const blog_content = document.getElementById("blog_content").value.trim();
 
-    if (blogTitle && blogContent) {
+    if (blog_title && blog_content) {
         // sends POST request to the new-blog API end-point
         const response = await fetch("/api/dashboard/", {
 

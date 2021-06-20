@@ -9,8 +9,8 @@ const app = express();
 router.post("/", withAuth, async (req, res) => {
     try {
         const { 
-            blogTitle, 
-            blogContent
+            blog_title, 
+            blog_content
         } = req.body;
 
         const payload = Object.assign(
@@ -18,8 +18,8 @@ router.post("/", withAuth, async (req, res) => {
             user_id: req.session.user_id,
         },
         {
-            blog_title: blogTitle,
-            blog_content: blogContent
+            blog_title: blog_title,
+            blog_content: blog_content
 
         });
         const newBlog = await Blog.create(payload);
@@ -33,46 +33,29 @@ router.post("/", withAuth, async (req, res) => {
 
 // UPDATE A Blog Posts by the user (app.put method) // edit-blog/:id
 
-router.put('/:id', withAuth, async (req, res) => {
-    try {
-        const editBlog = await Blog.update({
-            ...req.body,
-            user_id: req.session.user_id,
-        });
 
-        res.status(200).json(editBlog);
+
+
+
+// DELETE A Blog Posts by the user (app.put method) // edit-blog/:id
+
+router.delete('/blog/:id', withAuth, async (req, res) => {
+    console.log("Deleting")
+    try {
+        const [affectedRows] = await Blog.destroy({
+           where: {
+               id: req.params.id
+           }
+        });
+        if (affectedRows) {
+
+            res.status(200).end();
+        }
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
-
-// Delete a blog post by the user
-
-router.delete('/blog/:id', async (req, res) => {
-    try {
-        const blogData = await Blog.destroy({
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-            },
-        });
-
-        if (!blogData) {
-            res.status(404).json({ message: 'No Blog found'})
-        return;
-        }
-
-        res.status(200).json(blogData);
-    }   catch (err) {
-        res.status(500).json(err);
-    }
-})
-
-
-// READ One Blog Post by User (app.get - see homeroutes)
-
-// READ All Blog Posts by User (app.get - see homeroutes)
 
 
 module.exports = router;

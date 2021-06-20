@@ -3,38 +3,38 @@
 
 <h3>Edit Blog Post</h3>
 
- <form ref="uploadForm" id="uploadForm" action="/" method="post" encType="multipart/form-data" class="form new-blog-form">
+ <form ref="uploadForm" id="uploadForm" action="/" method="put" encType="multipart/form-data" class="form edit-blog-form" value="{{blog.id}}">
         <div class="form-group">
+            <input type="hidden" name="blog-id" id="blog-id" value="{{id}}">
         <label for="blog_title">Edit Blog Title:</label>
-        <input class="form-input" type="text" id="blog_title" name="blog_title" />{{blog_title}}
+        <input class="form-input" type="text" id="blog_title" name="blog_title" value="{{blog_title}}" /></input>
         </div>
          <div class="form-group">
         <label for="blog_content">Edit Blog Content:</label>
         <textarea class="form-input" name= "blog_content" type="text" id="blog_content" row="8" cols="80"/>{{blog_content}}</textarea>
-        </div>
-        <div class="form-group">
-        <button class="btn" type="submit">Create Blog</button>
         </div>
    
     <div class="wrapper">
         <button
             data-id="{{blog.id}}"
             class="btn btn-edit"
+            type="submit"
             id="btn-edit"
                 >Update Edit
         </button>
     </div>
 
+
+    </form>
     <div class="wrapper">
         <button
                 data-id="{{blog.id}}"
                 class="btn btn-delete"
                 id="btn-delete"
+                 type="submit"
                 >Delete
             </button>
         </div>
-        
-    </form>
 
 </article>
 
