@@ -1,18 +1,16 @@
 {{#if blogs.length}}
-
-<h3>All Current Blogs</h3>
-
+<div class="wrapper">
+  <div>
+    <h3>The Latest Star Tech Blogs...</h3>
+  </div>
+</div>
 
 {{#each blogs as |blog|}}
-<article>
+<article class="blog-card">
     <div class="blog-title row">
        <a href="/blog/{{blog.id}}">
-            <h4>{{blog_title}}</h4> 
+            <h4>{{blog_title}} ({{format_date date}})</h4> 
         </a>
-    </div>
-
-    <div class="blog-user row">
-        <p>{{username}} || {{date}}</p>
     </div>
 
     <div class="blog-content row">
@@ -20,9 +18,6 @@
     </div>
 
 </article>
-
-
-
 
 
 {{/each}}

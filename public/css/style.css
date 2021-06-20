@@ -1,7 +1,7 @@
 :root {
     --primary: #1d4375;
     --secondary: #36383b;
-    --tertiary: rgb(255, 197, 98);
+    --tertiary: rgb(246, 171, 43);
     --quaternary: rgb(143, 98, 188);
     --quinary: #2566bc;
     --dark: #160b01;
@@ -31,7 +31,7 @@ body {
   }
   
   header {
-    padding: 40px;
+    padding: 20px;
     text-align: center;
     background: var(--primary);
     color: var(--light);
@@ -62,6 +62,7 @@ main {
     flex-wrap: wrap;
     flex-grow: 1;
     justify-content: space-evenly;
+    border-radius: 4px;
 }
 
 nav {
@@ -81,12 +82,19 @@ nav a:hover {
     background-color: var(--dark);
 }
 
+.other-blogs h4 {
+  padding: 2px;
+  padding-top: 10px;
+  margin: 2px;
+}
+
 .blog {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
     min-width: 90%;
     background-color: var(--light);
+    border-radius: 4px;
 }
 
 
@@ -112,5 +120,172 @@ nav a:hover {
 #dashboard-blogs {
   border: medium;
   border-color: #1d4375;
+}
+
+
+.form-group {
+  padding: 5px;
+}
+
+.form-input {
+  width: 100%;
+  
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.create-btn {
+  background: green !important;
+  color: white;
+  border: none !important;
+  padding: 10px !important;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 100%;
+  transition: color 0.1s;
+  margin-left: 0px;
+  width: 100%;
+  
+}
+
+.btn-edit {
+  background: var(--tertiary) !important;
+  color: white;
+  width: 90%;
+  border: none !important;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 100%;
+  transition: color 0.1s;
+  padding: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-delete
+{
+  background: rgb(136, 6, 6) !important;
+  color: white;
+  width: 90%;
+  border: none !important;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 100%;
+  transition: color 0.1s;
+  padding: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.comment-btn
+{
+  background: var(--secondary) !important;
+  color: white;
+  width: 40%;
+  border: none !important;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.1s;
+  padding: 3px;
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: lightslategrey;
+}
+
+.wrapper {
+  text-align: center;
+  align-content: center;
+}
+
+
+.blog-container {
+  margin: 8px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  padding: 10px;
+  padding-top: 2px;
+  border-color: var(--secondary);
+  border-radius: 5px;
+  background-color: white;
+}
+
+.comment-content h5 {
+  margin: 2px;
+  padding: 2px;
+  font-size: 10px;
+}
+
+.comment-content p {
+  margin: 2px;
+  padding: 2px;
+  font-size: 12px;
+}
+
+.posted-comment-container {
+  margin: 8px;
+  padding: 10px;
+  margin-left: 20px;
+  margin-right: 15px;
+  padding-top: 2px;
+  margin-top: 2px;
+  margin-bottom: 0px;
+  border-color:var(--secondary);
+  border-radius: 5px;
+  background-color: rgb(237, 237, 237);
+  color: rgb(83, 84, 84);
+
+}
+
+.comment-container {
+  margin: 8px;
+  padding: 10px;
+  padding-top: 2px;
+  border-color:var(--secondary);
+  border-radius: 5px;
+  width: 50%;
+
+}
+
+
+.blog-card {
+background-color: white;
+margin: 10px;
+border-radius: 5px;
+padding: 10px;
+
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:var(--secondary);
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  padding: 2px;
 }
 

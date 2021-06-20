@@ -1,21 +1,39 @@
-
-<h3>Single Selected Blog</h3>
+<div class="wrapper">
+  <div>
+    <h4>You are viewing this blog...</h4>
+  </div>
+</div>
 
 <article>
 
     <div class="blog-container">
         <div class="blog-title row">
-            <h4>{{blog_title}}</h4>
+            <h4>{{blog_title}} || {{format_date date}}</h4>
         </div>
 
-        <div class="blog-user row">
-            <p>{{username}} || {{date}}</p>
-        </div>
 
         <div class="blog-content row">
             <p>{{blog_content}}</p>
         </div>
+
+            {{#if comments.length}}
+
+    {{#each comments as |comment|}}
+    <div class="posted-comment-container">
+        <div class="comment-content row"> 
+             <h5>{{username}} || {{format_date date_created}}</h5>
+            <p>{{comment_content}}</p>
+           
+        </div>
     </div>
+    {{/each}}
+
+    </div>
+
+
+
+
+    {{/if}}
 
     <div class="comment-container">
         <form ref="uploadForm" id="uploadForm" action="/" method="post" encType="multipart/form-data" class="form comment-form">
@@ -24,22 +42,10 @@
             <textarea class="form-input" type="text" id="comment_content" name="comment_content" row="8" cols="80"/></textarea>
             </div>
             <div class="form-group">
-            <button class="btn" type="submit">Add Comment</button>
+            <button class="btn comment-btn" type="submit">Add Comment</button>
             </div>
         </form>
     </div>
-
-
-    {{#if comments.length}}
-
-    {{#each comments as |comment|}}
-        <section class="comment"> 
-            <p>{{comment_content}}</p>
-            <p>{{username}} || {{date_created}}</p>
-        </section>
-    {{/each}}
-
-    {{/if}}
 
 
 </article>
