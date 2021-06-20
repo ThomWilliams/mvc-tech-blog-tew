@@ -15,29 +15,13 @@
   {{#each blogs as |blog|}}
     <div id="dashboard-blogs" class="content">
       <section class="card">
-        <a href="dashboard/{{blog.id}}">
+        <a href="/blog/{{blog.id}}/edit">
             <div class="card-body-simple">
             <div>
+              <a href="/blog/{{blog.id}}/edit">
                 <h1>{{blog_title}}</h1>
+              </a>
                 <h2>Posted on: {{format_date date}} / By: {{username}}</h2>
-                
-                <div class="wrapper">
-                    <button
-                        data-id="{{blog.id}}"
-                        class="btn btn-delete"
-                        id="btn-delete"
-                        >Delete
-                    </button>
-                </div>
-
-                <div class="wrapper">
-                    <button
-                        data-id="{{blog.id}}"
-                        class="btn btn-edit"
-                        id="btn-edit"
-                         >Edit
-                    </button>
-                </div>
             </div>
         </a>
 

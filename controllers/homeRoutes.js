@@ -1,7 +1,7 @@
 // HTML ROUTES
 
 const router = require("express").Router();
-const { Blog, User } = require('../models')
+const { Blog, User, Comments } = require('../models')
 const withAuth = require("../utils/auth")
 
 
@@ -42,13 +42,14 @@ router.get("/blog/:id", async (req, res) => {
 
     try {
         const blogData = await Blog.findByPk(req.params.id, {
-            include: [
-                {
-                    model: User,
-                    attributes: ['username'],
-                },
-            ],
+           include: [
+               User, {
+                   model: Comments, 
+                   include: [User]
+               }
+           ]
         });
+        console.log(blogData)
         //  serializes data for template to read
         const blog = blogData.get({ plain: true });
 
@@ -65,7 +66,7 @@ router.get("/blog/:id", async (req, res) => {
 
 // EDIT-BLOG (ONE) - uses withAuth Middleware to prevent non-users from accessing
 
-router.get("/blog/:id", withAuth, async (req, res) => {
+router.get("/blog/:id/edit", withAuth, async (req, res) => {
     // find logged in user by ID
     try {
         const userData = await User.findByPk(req.params.user_id, {

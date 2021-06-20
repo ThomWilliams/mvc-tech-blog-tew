@@ -1,5 +1,4 @@
 
-
 <h3>Single Selected Blog</h3>
 
 <article>
@@ -33,11 +32,12 @@
 
     {{#if comments.length}}
 
-    <section class="comment"> 
-        <p>{{comment_content}}</p>
-        <p>{{username}} || {{date_created}}</p>
-    
-    </section>
+    {{#each comments as |comment|}}
+        <section class="comment"> 
+            <p>{{comment_content}}</p>
+            <p>{{username}} || {{date_created}}</p>
+        </section>
+    {{/each}}
 
     {{/if}}
 
