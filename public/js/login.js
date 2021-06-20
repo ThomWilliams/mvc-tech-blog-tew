@@ -19,7 +19,7 @@ const loginFormHandler = async (event) => {
 
         if (response.ok) {
             // successful request sends user to dashboard page
-            document.location.replace('/api/dashboard'); 
+            document.location.replace('/dashboard'); 
         } else {
             alert(response.statusText);
         }

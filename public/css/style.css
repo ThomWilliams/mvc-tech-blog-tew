@@ -2,7 +2,7 @@
     --primary: #1d4375;
     --secondary: #36383b;
     --tertiary: rgb(255, 197, 98);
-    --quaternary: rgb(230, 230, 240);
+    --quaternary: rgb(143, 98, 188);
     --quinary: #2566bc;
     --dark: #160b01;
     --light: #e7dfd8;
@@ -21,13 +21,13 @@ body {
   }
   
   a {
-    color: var(--light);
+    color: var(--quinary);
     text-decoration: none;
 
   }
   
   a:visited {
-    color: var(--quinary);
+    color: var(--quaternary);
   }
   
   header {

@@ -35,11 +35,10 @@ router.get("/", async (req, res) => {
     }
 });
 
-// 
 
 // SINGLE-BLOG get request to view a single post using an id 
 
-router.get("/single-blog/:id", async (req, res) => {
+router.get("/blog/:id", async (req, res) => {
 
     try {
         const blogData = await Blog.findByPk(req.params.id, {
@@ -66,7 +65,7 @@ router.get("/single-blog/:id", async (req, res) => {
 
 // EDIT-BLOG (ONE) - uses withAuth Middleware to prevent non-users from accessing
 
-router.get("/edit-blog/:id", withAuth, async (req, res) => {
+router.get("/blog/:id", withAuth, async (req, res) => {
     // find logged in user by ID
     try {
         const userData = await User.findByPk(req.params.user_id, {

@@ -11,17 +11,14 @@ Comments.init(
     primaryKey: true,
     autoIncrement: true,
     },
-    comment: {
+    comment_content: {
     type: DataTypes.STRING,
     allowNull: false,
     },
-    username: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    },
-    date: {
-    type: DataTypes.DATE,
-    allowNull: false,
+    date_created: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
     },
     blog_id: {
     type: DataTypes.INTEGER,
