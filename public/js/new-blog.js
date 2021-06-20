@@ -14,8 +14,8 @@ async function newBlogFormHandler(event) {
 
             method: "POST",
             body: JSON.stringify({ 
-                blogTitle, 
-                blogContent 
+                blog_title, 
+                blog_content 
             }),
             headers: { "Content-Type": "application/json" },
         });

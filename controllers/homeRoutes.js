@@ -96,6 +96,26 @@ router.put("/blog/:id", withAuth, async (req, res) => {
   }
 });
 
+// DELETE-BLOG (ONE) - uses withAuth Middleware to prevent non-users from accessing
+
+router.delete('/blog/:id', withAuth, async (req, res) => {
+  console.log("Deleting")
+  try {
+      const [affectedRows] = await Blog.destroy({
+         where: {
+             id: req.params.id
+         }
+      });
+      if (affectedRows) {
+
+          res.status(200).end();
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
+
+
 
 // CREATE NEW BLOG FORM - uses withAuth Middleware to prevent non-users from accessing
 

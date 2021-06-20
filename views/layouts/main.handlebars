@@ -12,7 +12,7 @@
 
         {{#if logged_in}}
         <a href="/dashboard">Dashboard</a>
-        <a  href="/logout" id="logout">Logout</a>
+         <button class="no-button" id="logout">Logout</button>
 
         {{else}}
         <a href="/login" id="login">Login</a>
@@ -36,7 +36,7 @@
     <footer>Copyright Thom Williams</footer>
 
     {{#if logged_in}}
-    <script src="/js/logout.js"></script>
+      <script src="/js/logout.js"></script>
     {{/if}}
 </body>
 </html>

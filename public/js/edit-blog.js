@@ -29,22 +29,25 @@ const editBlogFormHandler = async (event) => {
   }
 };
 
-//  delete blog post
+// DELETE BLOG POST
 
 const deleteButtonHandler = async (event) => {
+      event.preventDefault();
     console.log("delete button clicked")
     const id = document.getElementById("blog-id").value;
   const response = await fetch(`/blog/${id}`, {
     method: "DELETE",
   });
 
-  if (response.ok) {
+  if (!response.ok) {
     // successful request sends user to all-blogs page
-    document.location.replace("/dashboard");
-  } else {
-    alert("Could not delete blog");
-  }
+    document.location.replace("/dashboard"); 
+   } else {
+        alert("Blog Deleted!");
+        document.location.replace("/dashboard"); 
+    }
 };
+
 
 editBlogFormEL.addEventListener("submit", editBlogFormHandler);
 deleteBlogButton.addEventListener("click", deleteButtonHandler);
